@@ -1,41 +1,65 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+from urllib.parse import urljoin
+import time
 
-# List of news websites to scrape
 news_websites = [
     "https://www.bbc.com/news",
     "https://www.reuters.com/news",
     "https://www.theguardian.com/world"
 ]
 
-# Function to fetch and parse articles
-def fetch_articles(url):
-    response = requests.get(url)
+KEYWORD = "terrorism"
+
+def fetch_articles(url, keyword):
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        print(f"Failed to fetch {url}: {e}")
+        return []
+
     soup = BeautifulSoup(response.text, 'html.parser')
-    
-    # Find all article links - Modify this depending on the website structure
-    articles = soup.find_all('a', href=True)
-    
+    links = soup.find_all('a', href=True)
+
     relevant_articles = []
-    
-    for article in articles:
-        link = article['href']
-        if re.search(r'\bterrorism\b', article.text, re.IGNORECASE):  # Check if "terrorism" is mentioned
-            relevant_articles.append({
-                'title': article.text.strip(),
-                'url': link
-            })
-    
+    seen = set()
+
+    for link in links:
+        text = link.get_text(strip=True)
+        href = link['href']
+
+        if keyword.lower() in text.lower():
+            full_url = urljoin(url, href)
+            if full_url not in seen:
+                seen.add(full_url)
+                relevant_articles.append({
+                    'title': text,
+                    'url': full_url,
+                    'source': url
+                })
+
     return relevant_articles
 
-# Scrape articles from all websites
-all_articles = []
-for website in news_websites:
-    articles = fetch_articles(website)
-    all_articles.extend(articles)
 
 # Print the collected articles
 for article in all_articles:
     print(f"Title: {article['title']}\nURL: {article['url']}\n")
+
+import csv
+
+if __name__ == "__main__":
+    results = scrape_news(news_websites, KEYWORD)
+
+    # Save to CSV
+    with open('terrorism_articles.csv', 'w', newline='', encoding='utf-8') as csvfile:
+        fieldnames = ['title', 'url', 'source']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+        writer.writeheader()
+        for article in results:
+            writer.writerow(article)
+
+    print(f"Saved {len(results)} articles to 'terrorism_articles.csv'")
 
