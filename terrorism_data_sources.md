@@ -1,9 +1,21 @@
-# Terrorism-related
+# Terrorism-related Data Sources
 
-- Counterrorism Guide: https://www.dni.gov/nctc/index.html
-- Jihadica: https://www.jihadica.com/
-- Terrorism & Radicalization Research Dashboard: https://start.me/p/OmExgb/terrorism-radicalisation-research-dashboard
-- Combating Terrorism Center: https://ctc.westpoint.edu/
-- ATF Bomb Data Center: https://www.atf.gov/explosives/enforcement-tools-services/us-bomb-data-center
-- Counter Extremism Project: https://www.counterextremism.com/
+- [Counterrorism Guide](https://www.dni.gov/nctc/index.html)
+- [Jihadica](https://www.jihadica.com/)
+- [Terrorism & Radicalization Research Dashboard](https://start.me/p/OmExgb/terrorism-radicalisation-research-dashboard)
+- [Combating Terrorism Center](https://ctc.westpoint.edu/)
+- [ATF Bomb Data Center](https://www.atf.gov/explosives/enforcement-tools-services/us-bomb-data-center)
+- [Counter Extremism Project](https://www.counterextremism.com/)
+- [ALIC Terrorism](https://www.archives.gov/research/alic/reference/terrorism-links.html)
+- [The American Foreign Policy Council’s World Almanac of Islamism](http://almanac.afpc.org)
+- [CAT](http://cat-int.org)
+- [COE-DAT](http://www.coedat.nato.int)
+- [Congressional Research Service Reports on Terrorism](https://fas.org/sgp/crs/terror/index.html)
+- [Counter Terrorist Trends and Analyses (CTTA)](http://www.rsis.edu.sg/rsis-publication/icpvtr/counter-terrorist-trends-and-analyses-ctta-volume-10-issue-06/#.WyDPZBIzZTZ)
+- [European Eye on Radicalization](https://eeradicalization.com)
+- [Eye on ISIS in Libya](https://eyeonisisinlibya.com)
+- [German Institute on Radicalization and De-radicalization Studies](http://girds.org)
+- [German Jihad](https://germanjihad.wordpress.com)
+- [Global Counterterrorism Forum](https://www.thegctf.org)
+- [The Global Muslim rotherhood Daily Watch](https://www.globalmbwatch.com)
   
